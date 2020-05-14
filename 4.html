@@ -4,12 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vue 04 - Clases (v-bind:class)</title>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="identidad.css">
 </head>
 <body>
 
-<div id="app">
+<div id="app" class="container mt-5">
   <h1>{{titulo}}</h1>
+  <div :class="[fondo, 'p-3', 'mb-3', 'text-white']">
+    <h4>1</h4>
+    <p >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis debitis qui repudiandae, nostrum alias ex. Quaerat, distinctio magnam dolorum sequi minus illo. Nihil maiores recusandae aspernatur totam? Error, ducimus? Molestias?</p>
+    <div class="form-group">
+      <label for="bg">Ingrese el background de fondo</label>
+      <input id="bg" type="text" class="form-control" v-model="fondo">
+    </div>
+  </div>
+  <div :class="[{'bg-info' : color}, {'bg-primary': !color}, 'text-white', 'p-3', 'd-flex', 'flex-column', 'align-items-center']">
+    <h4 class="align-self-start">2</h4>
+    <p >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis debitis qui repudiandae, nostrum alias ex. Quaerat, distinctio magnam dolorum sequi minus illo. Nihil maiores recusandae aspernatur totam? Error, ducimus? Molestias?</p>
+    <div class="form-group">
+      <input id="bg" type="submit" class="btn btn-secondary" @click="color = !color" value="Cambiar Color">
+    </div>
+  </div>
 </div>
 <!-- Interpolación -->
 
