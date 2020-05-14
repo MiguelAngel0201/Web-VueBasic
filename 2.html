@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 02 -  Methods, v-model y Evento Click</title>
+  <link rel="stylesheet" href="identidad.css">
+</head>
+<body>
+
+<div id="app">
+  <h1>{{titulo}}</h1>
+  <input type="text" v-model="nuevaFruta">
+  <button @click="agregarFruta">Click </button>
+  <ul>
+    <li v-for="fruta of frutas">{{fruta.nombre}} quedan {{fruta.cantidad}}
+    <span v-if="fruta.cantidad === 0"> - producto agotado</span>
+    </li>
+  </ul>
+</div>
+<!-- Interpolación -->
+
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="2.js"></script>  
+</body>
+</html>
