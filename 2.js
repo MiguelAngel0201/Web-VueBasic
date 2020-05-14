@@ -1,7 +1,7 @@
 const  app = new Vue({
   'el': ' #app', // Selecciona el elemento en donde se renderizará
   'data': {
-    'titulo': 'Vue 02 -  Methods, v-model y Evento Click',
+    'titulo': 'Vue 02 - Methods, v-model y Evento Click',
     'frutas': [
       {
         'nombre': 'Naranja',

@@ -1,7 +1,7 @@
 const  app = new Vue({
   'el': ' #app', // Selecciona el elemento en donde se renderizará
   'data': {
-    'titulo': 'Vue 03 - Keyup, v-model y Computed | Curso de Vue.js ',
+    'titulo': 'Vue 03 - Keyup, v-model y Computed',
     'frutas': [
       {
         'nombre': 'Naranja',
