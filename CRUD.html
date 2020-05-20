@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Adicional - CRUD (App de ejercicios)</title>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="identidad.css">
+</head>
+<body>
+
+<div id="app" class="container mt-5">
+  <h1>{{titulo}}</h1>
+  <input type="text" class="form-control my-3" @keyup.enter="addTarea" v-model="nuevaTarea">
+  <button class="btn btn-primary" @click="addTarea">Agregar</button>
+  <div class="my-3">
+    <div :class="[tarea.estado ? 'alert-success' : 'alert-danger', 'alert' , 'd-flex', 'justify-content-between', 'align-items-center']" 
+    class="" role="alert" v-for="(tarea, index) of tareas">
+      <h6>{{index}} - {{tarea.nombre}} - {{tarea.estado}}</h6> 
+      <div>
+        <button class="btn btn-success" @click="tarea.estado = !tarea.estado">OK</button>
+        <button class="btn btn-danger">X</button>
+      </div>
+     </div>
+  </div>
+</div>
+<!-- Interpolación -->
+
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script src="CRUD.js"></script>  
+</body>
+</html>
