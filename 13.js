@@ -11,14 +11,15 @@ const store = new Vuex.Store({
     decrement(state, n = 1) {
       state.numero -= n;
     },
-    fillCursos(state) {
-      state.cursos
+    fillCursos(state, cursosAccion) {
+      state.cursos = cursosAccion;
     }
   },
   actions: {
-    getCursos: async function() {
+    getCursos: async function({ commit }) {
       const data = await fetch('13.json');
       const cursos = await data.json(); //transforma todo lo que viene a formato json
+      commit('fillCursos', cursos);
     }
   }
 });
@@ -45,13 +46,18 @@ Vue.component('hijo', {
       <button @click="increment()" class="btn btn-success my-3" v-if="numero < 50">+</button>
       <button @click="decrement()" v-if="numero > 1" class="btn btn-danger my-3">-</button>
     </div>
+      <button @click="getCursos()" class="btn btn-warning text-light my-3">Obtener Cursos</button>
+    <ul class="pl-0">
+      <li v-for="item of cursos" class="text-dark">Nivel {{item.id}} - {{item.nombre}}</li>
+    </ul>
   </div>
   `,
   computed: {
-    ...Vuex.mapState(['numero'])
+    ...Vuex.mapState(['numero', 'cursos'])
   },
   methods: {
-    ...Vuex.mapMutations(['increment', 'decrement'])
+    ...Vuex.mapMutations(['increment', 'decrement']),
+    ...Vuex.mapActions(['getCursos'])
   }
 });
 // ==============
