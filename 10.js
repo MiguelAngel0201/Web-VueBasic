@@ -1,7 +1,8 @@
 Vue.component('padre', {
   template: /*template*/ `
     <div>
-      <h1>Número {{$store.state.numero}}</h1>
+    <h2>Número {{$store.state.numero}}</h2>
+    <hijo></hijo>
     </div>
 
   `
@@ -20,6 +21,7 @@ Vue.component('hijo', {
   template: /*template*/ `
   <div>
     <button @click="$store.commit('increment')">+</button>
+    <h2>Número {{$store.state.numero}}</h2>
   </div>
   `
 });

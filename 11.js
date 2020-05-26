@@ -1,10 +1,19 @@
 Vue.component('padre', {
-  template: /*template*/ `
+  template: /*html*/ `
     <div>
-      <h1>Número {{$store.state.numero}}</h1>
+    <h2>Número {{numero}}</h2>
+    <hijo></hijo>
     </div>
+  `,
+  computed: {
+    // Solución 1
+    // numero() {
+    //   // Cuando trabajamos dentro de la instancia no se coloca el signo del dolar "$" para llamar al store
+    //   return store.state.numero;
+    // }
+    ...Vuex.mapState(['numero'])
+  }
 
-  `
 });
 const store = new Vuex.Store({
   state: {
@@ -14,14 +23,19 @@ const store = new Vuex.Store({
     increment(state) {
       state.numero++;
     }
-  }
+  },
 });
+
 Vue.component('hijo', {
   template: /*template*/ `
   <div>
-  <button @click="$store.commit('increment')">+</button>
+    <button @click="$store.commit('increment')">+</button>
+    <h2>Número {{numero}}</h2>
   </div>
-  `
+  `,
+  computed: {
+    ...Vuex.mapState(['numero'])
+  }
 });
 
 new Vue({
@@ -29,6 +43,6 @@ new Vue({
   // store: store,
   store,
   data: {
-    'title': 'Vue 10 - Introducción a VueX'
-  }
+    'title': 'Vue 11 - mapState con Vuex'
+  },
 });
