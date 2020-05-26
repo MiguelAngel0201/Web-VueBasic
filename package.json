@@ -18,6 +18,7 @@
   "homepage": "https://github.com/MiguelAngel0201/Web-VueBasic#readme",
   "dependencies": {
     "bootstrap": "^4.5.0",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vuex": "^3.4.0"
   }
 }
